@@ -15,6 +15,13 @@ RUN mkdir -p /go/src /go/bin && chmod -R 777 /go
 ENV GOPATH /go
 ENV PATH /go/bin:$PATH
 
+RUN cd /go/src/github.com
+
+RUN mv yuvaraj951 grafana
+
+RUN cd /go/src/github.com/grafana
+RUN mv iconremote grafana
+
 WORKDIR /go/src/github.com/grafana/grafana
 
 CMD ["go", "run", "build.go", "build"]
